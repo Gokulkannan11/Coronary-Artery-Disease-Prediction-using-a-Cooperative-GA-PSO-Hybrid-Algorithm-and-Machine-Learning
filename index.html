@@ -1,0 +1,370 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Heart Disease Prediction Portal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: fixed left sidebar on wide screens, sticky top bar with scrolling nav on phones. Single reading column. */
+:root{
+  --bg:#F4F6F8; --surface:#FFFFFF; --fg:#14202B; --muted:#56646F; --line:#D9E0E6;
+  --accent:#B8243A; --accent-soft:#F8E5E8; --ok:#1F7A4D; --warn:#9A6200;
+  --f-head:"Space Grotesk","Inter",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1318; --surface:#161D24; --fg:#E7EDF1; --muted:#9AA8B3; --line:#27323C;
+  --accent:#FF7184; --accent-soft:#2B1A1F; --ok:#5FD39A; --warn:#E3B04B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1318; --surface:#161D24; --fg:#E7EDF1; --muted:#9AA8B3; --line:#27323C;
+  --accent:#FF7184; --accent-soft:#2B1A1F; --ok:#5FD39A; --warn:#E3B04B; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.shell{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}
+aside{position:sticky;top:0;align-self:start;height:100vh;padding:28px 20px;padding-left:max(20px,env(safe-area-inset-left,0px));border-right:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;gap:28px;overflow-y:auto}
+.brand{font-family:var(--f-head);font-weight:700;font-size:19px;letter-spacing:-.01em;line-height:1.2}
+.brand small{display:block;font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+nav{display:flex;flex-direction:column;gap:2px}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:7px 10px;border-radius:6px;border-left:2px solid transparent}
+nav a:hover{color:var(--fg)}
+nav a[aria-current="true"]{color:var(--fg);background:var(--accent-soft);border-left-color:var(--accent);font-weight:500}
+.side-foot{margin-top:auto;font-size:12px;color:var(--muted);font-family:var(--f-mono);line-height:1.5}
+
+main{padding-block:56px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:72px;min-width:0}
+main>*{width:100%;max-width:860px;margin-inline:auto}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+h1,h2,h3{font-family:var(--f-head);letter-spacing:-.015em;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.1;font-weight:700}
+h2{font-size:clamp(24px,3.2vw,30px);line-height:1.2;font-weight:600;margin-bottom:14px}
+h3{font-size:17px;font-weight:600;margin-bottom:6px}
+p{margin:0 0 14px;max-width:68ch}
+.lead{font-size:18px;color:var(--muted);max-width:60ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:22px;font-size:14px;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{font-family:var(--f-mono);font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.card p{font-size:14.5px;color:var(--muted);margin:0}
+.card .tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:block}
+
+.obj{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:10px;counter-reset:o}
+.obj li{counter-increment:o;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:baseline;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.obj li::before{content:"O" counter(o);font-family:var(--f-mono);font-size:13px;color:var(--accent)}
+
+.pipe{display:flex;flex-direction:column;margin-top:20px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.stage{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 18px;border-top:1px solid var(--line)}
+.stage:first-child{border-top:0}
+.stage .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);padding-top:3px}
+.stage p{margin:0;font-size:14.5px;color:var(--muted)}
+.stage b{color:var(--fg);font-weight:600}
+.novel{background:var(--accent-soft)}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);margin-top:18px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--f-mono)}
+td.empty{color:var(--muted)}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+
+.demo{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
+canvas{display:block;width:100%;height:auto;aspect-ratio:2/1;border-radius:6px;background:var(--bg);max-width:100%}
+.ctl{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:12px}
+button{font:inherit;font-size:14px;padding:7px 14px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button.primary{color:#1B0A0E}}
+:root[data-theme="dark"] button.primary{color:#1B0A0E}
+label.tg{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--muted)}
+.read{margin-left:auto;font-family:var(--f-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.read b{color:var(--fg);font-weight:500}
+
+.tl{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px}
+.tl li{display:grid;grid-template-columns:130px 1fr auto;gap:14px;align-items:baseline;padding:10px 0 10px 18px;position:relative}
+.tl li::before{content:"";position:absolute;left:-7px;top:19px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--line)}
+.tl li.done::before{background:var(--ok);border-color:var(--ok)}
+.tl .d{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.tl .s{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tl li.done .s{color:var(--ok)}
+.tl li.soon .s{color:var(--warn)}
+.refs{padding-left:20px;color:var(--muted);font-size:14.5px}
+.refs li{margin-bottom:8px}
+footer{border-top:1px solid var(--line);padding-top:24px;font-size:14px;color:var(--muted)}
+footer b{color:var(--fg);font-weight:500}
+
+.topbar{display:none}
+@media (max-width:899px){
+  .shell{display:block}
+  aside{display:none}
+  .topbar{display:block;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line);padding-block:10px 0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .topbar .brand{font-size:16px}
+  .topbar nav{flex-direction:row;overflow-x:auto;gap:4px;padding:8px 0 8px;scrollbar-width:thin}
+  .topbar nav a{white-space:nowrap;border-left:0;border-bottom:2px solid transparent;border-radius:6px 6px 0 0}
+  .topbar nav a[aria-current="true"]{border-bottom-color:var(--accent)}
+  main{padding-top:36px;gap:56px}
+  .stage{grid-template-columns:1fr;gap:4px}
+  .tl li{grid-template-columns:1fr;gap:2px}
+  .read{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+<div class="topbar">
+  <div class="brand">Heart Disease Prediction</div>
+  <nav aria-label="Sections" id="topnav"></nav>
+</div>
+
+<div class="shell">
+<aside>
+  <div class="brand">Heart Disease Prediction<small>M.Tech project portal</small></div>
+  <nav aria-label="Sections" id="sidenav"></nav>
+  <div class="side-foot">Amrita Vishwa Vidyapeetham<br>Computer Science and Engineering</div>
+</aside>
+
+<main>
+  <header id="overview" data-title="Overview">
+    <p class="eyebrow">M.Tech Project</p>
+    <h1>Hybrid Evolutionary Optimization and Machine Learning for Heart Disease Prediction</h1>
+    <p class="lead" style="margin-top:16px">A modified evolutionary optimizer that tunes a machine learning classifier on the Cleveland and Statlog heart disease datasets, with a SHAP layer that explains each prediction in plain language.</p>
+    <div class="chips"><span class="chip">GA + PSO</span><span class="chip">Cleveland</span><span class="chip">Statlog</span><span class="chip">SHAP</span><span class="chip">SDG 3</span></div>
+    <div class="meta"><span><b>Student</b> GK</span><span><b>Guide</b> [Guide name]</span><span><b>Programme</b> M.Tech Computer Science, 2025–2027</span></div>
+
+    <div class="grid">
+      <div class="card"><span class="tag">Data</span><h3>Two heart disease datasets</h3><p>Cleveland and Statlog (Heart) are used so results can be compared across two sources of the same clinical features.</p></div>
+      <div class="card"><span class="tag">Optimizer</span><h3>Evolutionary core</h3><p>A hybrid of Genetic Algorithm and Particle Swarm Optimization. The novelty is in changing the optimizer itself, not only applying it.</p></div>
+      <div class="card"><span class="tag">Explainability</span><h3>SHAP in plain language</h3><p>Each prediction is explained by the features that pushed it up or down, written so a non-specialist can read it.</p></div>
+    </div>
+  </header>
+
+  <section id="objectives" data-title="Objectives">
+    <p class="eyebrow">Problem and scope</p>
+    <h2>Problem statement and objectives</h2>
+    <p>Heart disease prediction papers often apply a standard GA or PSO to a classifier and report accuracy alone. That setup is common, so it adds little new knowledge. This project changes the optimizer and reports more than accuracy.</p>
+    <ol class="obj">
+      <li>Design a modified hybrid evolutionary optimizer that combines GA and PSO operators.</li>
+      <li>Use it to select features and tune hyperparameters of the classifier on Cleveland and Statlog.</li>
+      <li>Compare against plain GA, plain PSO and a baseline classifier, using more than accuracy.</li>
+      <li>Add a SHAP explanation layer that outputs plain-language reasons for each prediction.</li>
+    </ol>
+    <div class="card" style="margin-top:16px"><span class="tag">Sustainable Development Goal</span><p><b style="color:var(--fg)">SDG 3, Good Health and Well-being.</b> Earlier and more transparent screening for cardiovascular disease supports target 3.4 on reducing premature deaths from non-communicable diseases.</p></div>
+  </section>
+
+  <section id="literature" data-title="Literature">
+    <p class="eyebrow">Literature survey</p>
+    <h2>Literature matrix</h2>
+    <p>Ten Scopus-indexed papers from IEEE, Springer and Elsevier, 2020–2026. Each row records the problem, the method, its limitation and the gap it leaves.</p>
+    <div class="tablewrap"><table id="littable">
+      <thead><tr><th>Ref</th><th>Problem addressed</th><th>Method</th><th>Limitation</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <p class="note">Fill each row from a paper you have verified in the publisher database. The research gap follows from the Limitation column.</p>
+  </section>
+
+  <section id="method" data-title="Methodology">
+    <p class="eyebrow">Methodology</p>
+    <h2>Pipeline</h2>
+    <p>Data moves through five stages. The highlighted stage is where the novelty sits.</p>
+    <div class="pipe">
+      <div class="stage"><div class="k">1 · Data</div><p><b>Cleveland and Statlog.</b> Merge or evaluate separately, handle missing values, encode categorical features, scale numeric ones, then split for cross-validation.</p></div>
+      <div class="stage novel"><div class="k">2 · Optimizer</div><p><b>Modified hybrid GA-PSO.</b> Particles move by PSO velocity updates. The weakest part of the population is replaced each generation using GA crossover and mutation. The modification to this loop is the core contribution.</p></div>
+      <div class="stage"><div class="k">3 · Classifier</div><p><b>Machine learning model.</b> The optimizer searches over the feature subset and the classifier hyperparameters. Fitness is validation performance, not training accuracy.</p></div>
+      <div class="stage"><div class="k">4 · Evaluation</div><p><b>Beyond accuracy.</b> Precision, recall, F1, AUROC, number of selected features and run-to-run variance across repeated seeds.</p></div>
+      <div class="stage"><div class="k">5 · Explanation</div><p><b>SHAP layer.</b> Feature contributions are converted into a short plain-language statement for each patient record.</p></div>
+    </div>
+  </section>
+
+  <section id="demo" data-title="Live demo">
+    <p class="eyebrow">Live demo</p>
+    <h2>Hybrid search on a test function</h2>
+    <p>This runs the hybrid idea in your browser on the Rastrigin function, a standard benchmark with many local minima. Dots are candidate solutions. The global minimum is at the centre. It illustrates the mechanism and does not use the heart disease data.</p>
+    <div class="demo">
+      <canvas id="cv" width="800" height="400" aria-label="Particle swarm searching the Rastrigin function"></canvas>
+      <div class="ctl">
+        <button class="primary" id="run" type="button">Pause</button>
+        <button id="reset" type="button">Reset</button>
+        <label class="tg" for="ga"><input id="ga" type="checkbox" checked> GA replacement step</label>
+        <span class="read">gen <b id="g">0</b> · best f(x) <b id="b">–</b></span>
+      </div>
+    </div>
+    <p class="note">Turn the GA step off to see plain PSO. Reset a few times with each setting to compare how quickly the best value falls.</p>
+  </section>
+
+  <section id="results" data-title="Results">
+    <p class="eyebrow">Experiments</p>
+    <h2>Results</h2>
+    <p>Experiments are not complete. The table shows the comparison that will be reported, with each cell filled once the run is finished.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Method</th><th class="num">Accuracy</th><th class="num">F1</th><th class="num">AUROC</th><th class="num">Features</th></tr></thead>
+      <tbody>
+        <tr><td>Baseline classifier</td><td class="num empty">–</td><td class="num empty">–</td><td class="num empty">–</td><td class="num empty">–</td></tr>
+        <tr><td>GA</td><td class="num empty">–</td><td class="num empty">–</td><td class="num empty">–</td><td class="num empty">–</td></tr>
+        <tr><td>PSO</td><td class="num empty">–</td><td class="num empty">–</td><td class="num empty">–</td><td class="num empty">–</td></tr>
+        <tr><td>Hybrid GA-PSO</td><td class="num empty">–</td><td class="num empty">–</td><td class="num empty">–</td><td class="num empty">–</td></tr>
+        <tr><td><b>Proposed optimizer</b></td><td class="num empty">–</td><td class="num empty">–</td><td class="num empty">–</td><td class="num empty">–</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="timeline" data-title="Timeline">
+    <p class="eyebrow">Phase 1</p>
+    <h2>Review timeline</h2>
+    <p>Phase 1 dates for 2026. Status updates from today's date.</p>
+    <ul class="tl" id="tl"></ul>
+  </section>
+
+  <section id="references" data-title="References">
+    <p class="eyebrow">References</p>
+    <h2>References</h2>
+    <ol class="refs">
+      <li>Cleveland Heart Disease dataset, UCI Machine Learning Repository.</li>
+      <li>Statlog (Heart) dataset, UCI Machine Learning Repository.</li>
+      <li>Lundberg and Lee, A unified approach to interpreting model predictions (SHAP), NeurIPS 2017.</li>
+      <li>Add the ten surveyed papers here in IEEE format.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <b>GK</b><br>M.Tech Computer Science, Amrita Vishwa Vidyapeetham<br>Under the guidance of [Guide name]
+  </footer>
+</main>
+</div>
+
+<script>
+(function(){
+  /* nav */
+  var secs=[].slice.call(document.querySelectorAll("main [data-title]"));
+  ["sidenav","topnav"].forEach(function(id){
+    var n=document.getElementById(id);
+    secs.forEach(function(s){var a=document.createElement("a");a.href="#"+s.id;a.textContent=s.dataset.title;n.appendChild(a)});
+  });
+  function mark(id){
+    document.querySelectorAll("nav a").forEach(function(a){
+      var on=a.getAttribute("href")==="#"+id;
+      if(on)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current");
+    });
+    var t=document.querySelector("#topnav a[aria-current]");
+    if(t&&t.scrollIntoView&&getComputedStyle(document.querySelector(".topbar")).display!=="none"){
+      var nav=document.getElementById("topnav");nav.scrollLeft=t.offsetLeft-16;
+    }
+  }
+  function spy(){
+    var cur=secs[0].id,y=window.scrollY+140;
+    secs.forEach(function(s){if(s.offsetTop<=y)cur=s.id});
+    mark(cur);
+  }
+  window.addEventListener("scroll",spy,{passive:true});spy();
+
+  /* literature rows */
+  var tb=document.querySelector("#littable tbody");
+  for(var i=1;i<=10;i++){
+    var r=document.createElement("tr");
+    r.innerHTML='<td>['+i+']</td><td class="empty">–</td><td class="empty">–</td><td class="empty">–</td>';
+    tb.appendChild(r);
+  }
+
+  /* timeline */
+  var items=[
+    ["2026-11-14","11–14 Nov","Guide Review 3"],
+    ["2026-11-15","15 Nov","Panel document submission"],
+    ["2026-11-16","16 Nov","Panel marks"],
+    ["2026-11-23","23 Nov","Final presentation submission, with guide approval"],
+    ["2026-11-30","24–30 Nov","External review (tentative)"],
+    ["2026-12-04","4 Dec","Phase 1 final grade due"]
+  ];
+  var today=new Date();today.setHours(0,0,0,0);
+  var ul=document.getElementById("tl"),nextSet=false;
+  items.forEach(function(it){
+    var end=new Date(it[0]+"T00:00:00"),li=document.createElement("li"),st;
+    if(end<today){li.className="done";st="Done"}
+    else if(!nextSet){li.className="soon";st="Next";nextSet=true}
+    else st="Upcoming";
+    li.innerHTML='<span class="d">'+it[1]+'</span><span>'+it[2]+'</span><span class="s">'+st+'</span>';
+    ul.appendChild(li);
+  });
+
+  /* hybrid GA-PSO demo on Rastrigin */
+  var cv=document.getElementById("cv"),cx=cv.getContext("2d"),W=cv.width,H=cv.height;
+  var R=5.12,N=36,sx=W/(2*R),sy=H/(2*R);
+  function f(x,y){return 20+x*x-10*Math.cos(2*Math.PI*x)+y*y-10*Math.cos(2*Math.PI*y)}
+  function rnd(a,b){return a+Math.random()*(b-a)}
+  var P,gen,gb,bg,bgKey,running=true,timer=null;
+  function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+  function rgb(c){
+    var d=document.createElement("canvas").getContext("2d");d.fillStyle=c;d.fillRect(0,0,1,1);
+    var p=d.getImageData(0,0,1,1).data;return[p[0],p[1],p[2]];
+  }
+  function buildBg(){
+    var key=css("--fg")+css("--bg");if(key===bgKey)return;bgKey=key;
+    var c=rgb(css("--fg")),w=100,h=50,o=document.createElement("canvas");o.width=w;o.height=h;
+    var d=o.getContext("2d"),im=d.createImageData(w,h);
+    for(var j=0;j<h;j++)for(var i=0;i<w;i++){
+      var v=f((i/w)*2*R-R,(j/h)*2*R-R)/80,k=(j*w+i)*4;
+      im.data[k]=c[0];im.data[k+1]=c[1];im.data[k+2]=c[2];im.data[k+3]=Math.min(70,v*90);
+    }
+    d.putImageData(im,0,0);bg=o;
+  }
+  function init(){
+    P=[];gb=null;gen=0;
+    for(var i=0;i<N;i++){
+      var p={x:rnd(-R,R),y:rnd(-R,R),vx:rnd(-.5,.5),vy:rnd(-.5,.5)};
+      p.f=f(p.x,p.y);p.bx=p.x;p.by=p.y;p.bf=p.f;P.push(p);
+      if(!gb||p.f<gb.f)gb={x:p.x,y:p.y,f:p.f};
+    }
+    draw();
+  }
+  function clamp(v){return Math.max(-R,Math.min(R,v))}
+  function step(){
+    var useGA=document.getElementById("ga").checked;
+    P.forEach(function(p){
+      p.vx=.72*p.vx+1.5*Math.random()*(p.bx-p.x)+1.5*Math.random()*(gb.x-p.x);
+      p.vy=.72*p.vy+1.5*Math.random()*(p.by-p.y)+1.5*Math.random()*(gb.y-p.y);
+      p.x=clamp(p.x+p.vx);p.y=clamp(p.y+p.vy);p.f=f(p.x,p.y);
+      if(p.f<p.bf){p.bf=p.f;p.bx=p.x;p.by=p.y}
+      if(p.f<gb.f)gb={x:p.x,y:p.y,f:p.f};
+    });
+    if(useGA){
+      P.sort(function(a,b){return a.f-b.f});
+      var half=Math.floor(N/2),cut=Math.floor(N*.7);
+      for(var i=cut;i<N;i++){
+        var a=P[Math.floor(Math.random()*half)],b=P[Math.floor(Math.random()*half)],t=Math.random();
+        var p=P[i];
+        p.x=clamp(t*a.x+(1-t)*b.x+(Math.random()<.4?rnd(-.6,.6):0));
+        p.y=clamp(t*a.y+(1-t)*b.y+(Math.random()<.4?rnd(-.6,.6):0));
+        p.vx=p.vy=0;p.f=f(p.x,p.y);p.bx=p.x;p.by=p.y;p.bf=p.f;
+        if(p.f<gb.f)gb={x:p.x,y:p.y,f:p.f};
+      }
+    }
+    gen++;draw();
+  }
+  function draw(){
+    buildBg();
+    cx.clearRect(0,0,W,H);
+    cx.imageSmoothingEnabled=true;cx.drawImage(bg,0,0,W,H);
+    cx.strokeStyle=css("--line");cx.lineWidth=1;
+    cx.beginPath();cx.moveTo(W/2,0);cx.lineTo(W/2,H);cx.moveTo(0,H/2);cx.lineTo(W,H/2);cx.stroke();
+    cx.fillStyle=css("--accent");
+    P.forEach(function(p){cx.beginPath();cx.arc((p.x+R)*sx,(p.y+R)*sy,4,0,6.283);cx.fill()});
+    cx.strokeStyle=css("--fg");cx.lineWidth=2;
+    cx.beginPath();cx.arc((gb.x+R)*sx,(gb.y+R)*sy,9,0,6.283);cx.stroke();
+    document.getElementById("g").textContent=gen;
+    document.getElementById("b").textContent=gb.f.toFixed(4);
+  }
+  function loop(){clearInterval(timer);if(running)timer=setInterval(function(){if(gen>=300){setRun(false);return}step()},90)}
+  function setRun(v){running=v;document.getElementById("run").textContent=v?"Pause":"Run";loop()}
+  document.getElementById("run").addEventListener("click",function(){setRun(!running)});
+  document.getElementById("reset").addEventListener("click",function(){init();setRun(true)});
+  init();
+  if(window.matchMedia("(prefers-reduced-motion:reduce)").matches){for(var k=0;k<60;k++)step();setRun(false)}else loop();
+  var mq=window.matchMedia("(prefers-color-scheme:dark)");
+  if(mq.addEventListener)mq.addEventListener("change",function(){bgKey=null;draw()});
+})();
+</script>
+
+</body></html>
