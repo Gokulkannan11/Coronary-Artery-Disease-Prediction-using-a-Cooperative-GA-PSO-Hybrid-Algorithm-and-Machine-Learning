@@ -1,0 +1,13 @@
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.vscode/
+
+# Keep raw datasets out of version control when they are large or licensed.
+data/raw/*.csv
+!data/raw/statlog_heart.csv
+!data/raw/z_alizadeh_sani.csv
+
+results/baseline/*.json

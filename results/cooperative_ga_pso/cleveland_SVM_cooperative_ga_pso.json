@@ -1,0 +1,263 @@
+{
+  "dataset_name": "cleveland",
+  "classifier_name": "SVM",
+  "best_fitness": 0.8068415654711538,
+  "best_features": [
+    "age",
+    "sex",
+    "cp",
+    "fbs",
+    "thalach",
+    "exang",
+    "ca",
+    "thal"
+  ],
+  "best_hyperparams": {
+    "C": 0.819163185819456,
+    "gamma": 0.26865166991086686
+  },
+  "total_wall_time_s": 2346.286373400013,
+  "round_logs": [
+    {
+      "round_idx": 1,
+      "classifier_name": "SVM",
+      "dataset_name": "cleveland",
+      "ga_best_fitness": 0.7876670605380284,
+      "pso_best_fitness": 0.8068415654711538,
+      "n_selected_features": 8,
+      "selected_features": [
+        "age",
+        "sex",
+        "cp",
+        "fbs",
+        "thalach",
+        "exang",
+        "ca",
+        "thal"
+      ],
+      "best_hyperparams": {
+        "C": 0.819163185819456,
+        "gamma": 0.26865166991086686
+      },
+      "wall_time_s": 287.01491159998113
+    },
+    {
+      "round_idx": 2,
+      "classifier_name": "SVM",
+      "dataset_name": "cleveland",
+      "ga_best_fitness": 0.8068415654711538,
+      "pso_best_fitness": 0.8068415654711538,
+      "n_selected_features": 8,
+      "selected_features": [
+        "age",
+        "sex",
+        "cp",
+        "fbs",
+        "thalach",
+        "exang",
+        "ca",
+        "thal"
+      ],
+      "best_hyperparams": {
+        "C": 0.819163185819456,
+        "gamma": 0.26865166991086686
+      },
+      "wall_time_s": 219.53419279999798
+    },
+    {
+      "round_idx": 3,
+      "classifier_name": "SVM",
+      "dataset_name": "cleveland",
+      "ga_best_fitness": 0.8068415654711538,
+      "pso_best_fitness": 0.8068415654711538,
+      "n_selected_features": 8,
+      "selected_features": [
+        "age",
+        "sex",
+        "cp",
+        "fbs",
+        "thalach",
+        "exang",
+        "ca",
+        "thal"
+      ],
+      "best_hyperparams": {
+        "C": 0.819163185819456,
+        "gamma": 0.26865166991086686
+      },
+      "wall_time_s": 219.85882369999308
+    },
+    {
+      "round_idx": 4,
+      "classifier_name": "SVM",
+      "dataset_name": "cleveland",
+      "ga_best_fitness": 0.8068415654711538,
+      "pso_best_fitness": 0.8068415654711538,
+      "n_selected_features": 8,
+      "selected_features": [
+        "age",
+        "sex",
+        "cp",
+        "fbs",
+        "thalach",
+        "exang",
+        "ca",
+        "thal"
+      ],
+      "best_hyperparams": {
+        "C": 0.819163185819456,
+        "gamma": 0.26865166991086686
+      },
+      "wall_time_s": 237.86115830001654
+    },
+    {
+      "round_idx": 5,
+      "classifier_name": "SVM",
+      "dataset_name": "cleveland",
+      "ga_best_fitness": 0.8068415654711538,
+      "pso_best_fitness": 0.8068415654711538,
+      "n_selected_features": 8,
+      "selected_features": [
+        "age",
+        "sex",
+        "cp",
+        "fbs",
+        "thalach",
+        "exang",
+        "ca",
+        "thal"
+      ],
+      "best_hyperparams": {
+        "C": 0.819163185819456,
+        "gamma": 0.26865166991086686
+      },
+      "wall_time_s": 244.68178259997512
+    },
+    {
+      "round_idx": 6,
+      "classifier_name": "SVM",
+      "dataset_name": "cleveland",
+      "ga_best_fitness": 0.8068415654711538,
+      "pso_best_fitness": 0.8068415654711538,
+      "n_selected_features": 8,
+      "selected_features": [
+        "age",
+        "sex",
+        "cp",
+        "fbs",
+        "thalach",
+        "exang",
+        "ca",
+        "thal"
+      ],
+      "best_hyperparams": {
+        "C": 0.819163185819456,
+        "gamma": 0.26865166991086686
+      },
+      "wall_time_s": 228.51093390001915
+    },
+    {
+      "round_idx": 7,
+      "classifier_name": "SVM",
+      "dataset_name": "cleveland",
+      "ga_best_fitness": 0.8068415654711538,
+      "pso_best_fitness": 0.8068415654711538,
+      "n_selected_features": 8,
+      "selected_features": [
+        "age",
+        "sex",
+        "cp",
+        "fbs",
+        "thalach",
+        "exang",
+        "ca",
+        "thal"
+      ],
+      "best_hyperparams": {
+        "C": 0.819163185819456,
+        "gamma": 0.26865166991086686
+      },
+      "wall_time_s": 228.60730669999612
+    },
+    {
+      "round_idx": 8,
+      "classifier_name": "SVM",
+      "dataset_name": "cleveland",
+      "ga_best_fitness": 0.8068415654711538,
+      "pso_best_fitness": 0.8068415654711538,
+      "n_selected_features": 8,
+      "selected_features": [
+        "age",
+        "sex",
+        "cp",
+        "fbs",
+        "thalach",
+        "exang",
+        "ca",
+        "thal"
+      ],
+      "best_hyperparams": {
+        "C": 0.819163185819456,
+        "gamma": 0.26865166991086686
+      },
+      "wall_time_s": 225.32528439999442
+    },
+    {
+      "round_idx": 9,
+      "classifier_name": "SVM",
+      "dataset_name": "cleveland",
+      "ga_best_fitness": 0.8068415654711538,
+      "pso_best_fitness": 0.8068415654711538,
+      "n_selected_features": 8,
+      "selected_features": [
+        "age",
+        "sex",
+        "cp",
+        "fbs",
+        "thalach",
+        "exang",
+        "ca",
+        "thal"
+      ],
+      "best_hyperparams": {
+        "C": 0.819163185819456,
+        "gamma": 0.26865166991086686
+      },
+      "wall_time_s": 223.60498350000125
+    },
+    {
+      "round_idx": 10,
+      "classifier_name": "SVM",
+      "dataset_name": "cleveland",
+      "ga_best_fitness": 0.8068415654711538,
+      "pso_best_fitness": 0.8068415654711538,
+      "n_selected_features": 8,
+      "selected_features": [
+        "age",
+        "sex",
+        "cp",
+        "fbs",
+        "thalach",
+        "exang",
+        "ca",
+        "thal"
+      ],
+      "best_hyperparams": {
+        "C": 0.819163185819456,
+        "gamma": 0.26865166991086686
+      },
+      "wall_time_s": 231.28613160000532
+    }
+  ],
+  "config": {
+    "RANDOM_STATE": 42,
+    "CV_N_SPLITS": 10,
+    "CV_SCORING": "f1",
+    "N_ROUNDS": 10,
+    "GA_GENS_PER_ROUND": 5,
+    "PSO_ITERS_PER_ROUND": 20,
+    "GA_POP_SIZE": 50,
+    "PSO_N_PARTICLES": 30,
+    "FEATURE_PENALTY": 0.005
+  }
+}

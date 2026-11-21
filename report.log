@@ -1,0 +1,201 @@
+2026-09-30 20:57:22,951 - __main__ - INFO -   Loaded 'cleveland': 303 samples, 13 features, 45.9% positive.
+2026-09-30 20:57:22,953 - __main__ - INFO - 
+Starting cooperative run: dataset=cleveland  classifier=SVM
+2026-09-30 20:57:22,954 - __main__ - INFO - 
+========================================================================
+Cooperative GA-PSO | Dataset: cleveland    | Classifier: SVM
+========================================================================
+2026-09-30 20:57:22,961 - __main__ - INFO - Round  1/2
+2026-09-30 20:57:43,318 - __main__ - INFO -   GA  best fitness=0.7845 | selected 5/13 features
+2026-09-30 20:57:59,384 - __main__ - ERROR - Run failed for cleveland / SVM: 'GlobalBestPSO' object has no attribute 'best_cost_yet'
+Traceback (most recent call last):
+  File "D:\MTECH\Evolve tag\heart-disease-hybrid-eo\src\cooperative_ga_pso.py", line 952, in main
+    result = run_cooperative_loop(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\MTECH\Evolve tag\heart-disease-hybrid-eo\src\cooperative_ga_pso.py", line 724, in run_cooperative_loop
+    pso.run(n_iterations=pso_iters_per_round)
+  File "D:\MTECH\Evolve tag\heart-disease-hybrid-eo\src\cooperative_ga_pso.py", line 543, in run
+    best_cost = self._optimizer.best_cost_yet
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GlobalBestPSO' object has no attribute 'best_cost_yet'
+2026-09-30 21:01:08,890 - __main__ - INFO -   Loaded 'cleveland': 303 samples, 13 features, 45.9% positive.
+2026-09-30 21:01:08,890 - __main__ - INFO - 
+Starting cooperative run: dataset=cleveland  classifier=SVM
+2026-09-30 21:01:08,890 - __main__ - INFO - 
+========================================================================
+Cooperative GA-PSO | Dataset: cleveland    | Classifier: SVM
+========================================================================
+2026-09-30 21:01:08,894 - __main__ - INFO - Round  1/2
+2026-09-30 21:01:29,544 - __main__ - INFO -   GA  best fitness=0.7845 | selected 5/13 features
+2026-09-30 21:01:42,321 - __main__ - INFO -   PSO best fitness=0.8077 | hyperparams: {'C': 675.9913917199743, 'gamma': 0.010002980829851092}
+2026-09-30 21:01:42,321 - __main__ - INFO - Round  2/2
+2026-09-30 21:01:53,635 - __main__ - INFO -   GA  best fitness=0.8077 | selected 5/13 features
+2026-09-30 21:02:06,702 - __main__ - INFO -   PSO best fitness=0.8077 | hyperparams: {'C': 675.9913917199743, 'gamma': 0.010002980829851092}
+2026-09-30 21:02:06,705 - __main__ - INFO - Results saved to results\cooperative_ga_pso\cleveland_SVM_cooperative_ga_pso.json
+2026-09-30 21:03:45,425 - __main__ - INFO -   Loaded 'cleveland': 303 samples, 13 features, 45.9% positive.
+2026-09-30 21:03:45,430 - __main__ - INFO - 
+Starting cooperative run: dataset=cleveland  classifier=SVM
+2026-09-30 21:03:45,430 - __main__ - INFO - 
+========================================================================
+Cooperative GA-PSO | Dataset: cleveland    | Classifier: SVM
+========================================================================
+2026-09-30 21:03:45,430 - __main__ - INFO - Round  1/10
+2026-09-30 21:04:12,478 - __main__ - INFO -   GA  best fitness=0.7877 | selected 8/13 features
+2026-09-30 21:04:39,159 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.8654904355589438, 'gamma': 0.26827462966275745}
+2026-09-30 21:04:39,159 - __main__ - INFO - Round  2/10
+2026-09-30 21:04:55,636 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:05:22,134 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.8654904355589438, 'gamma': 0.26827462966275745}
+2026-09-30 21:05:22,135 - __main__ - INFO - Round  3/10
+2026-09-30 21:05:38,913 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:06:03,227 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.8654904355589438, 'gamma': 0.26827462966275745}
+2026-09-30 21:06:03,227 - __main__ - INFO - Round  4/10
+2026-09-30 21:06:16,015 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:06:36,407 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.8654904355589438, 'gamma': 0.26827462966275745}
+2026-09-30 21:06:36,409 - __main__ - INFO - Round  5/10
+2026-09-30 21:06:49,955 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:07:10,434 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.8654904355589438, 'gamma': 0.26827462966275745}
+2026-09-30 21:07:10,434 - __main__ - INFO - Round  6/10
+2026-09-30 21:07:24,784 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:07:45,052 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.8654904355589438, 'gamma': 0.26827462966275745}
+2026-09-30 21:07:45,052 - __main__ - INFO - Round  7/10
+2026-09-30 21:07:58,070 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:08:18,754 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.8654904355589438, 'gamma': 0.26827462966275745}
+2026-09-30 21:08:18,754 - __main__ - INFO - Round  8/10
+2026-09-30 21:08:32,906 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:08:53,495 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.8654904355589438, 'gamma': 0.26827462966275745}
+2026-09-30 21:08:53,495 - __main__ - INFO - Round  9/10
+2026-09-30 21:09:06,805 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:09:27,208 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.8654904355589438, 'gamma': 0.26827462966275745}
+2026-09-30 21:09:27,208 - __main__ - INFO - Round 10/10
+2026-09-30 21:09:40,416 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:10:01,257 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.8654904355589438, 'gamma': 0.26827462966275745}
+2026-09-30 21:10:01,257 - __main__ - INFO - Results saved to results\cooperative_ga_pso\cleveland_SVM_cooperative_ga_pso.json
+2026-09-30 21:10:01,265 - __main__ - INFO - 
+Starting cooperative run: dataset=cleveland  classifier=RandomForest
+2026-09-30 21:10:01,267 - __main__ - INFO - 
+========================================================================
+Cooperative GA-PSO | Dataset: cleveland    | Classifier: RandomForest
+========================================================================
+2026-09-30 21:10:01,268 - __main__ - INFO - Round  1/10
+2026-09-30 21:13:35,607 - __main__ - INFO -   GA  best fitness=0.7735 | selected 6/13 features
+2026-09-30 21:24:21,908 - __main__ - INFO -   Loaded 'cleveland': 303 samples, 13 features, 45.9% positive.
+2026-09-30 21:24:21,908 - __main__ - INFO - 
+Starting cooperative run: dataset=cleveland  classifier=SVM
+2026-09-30 21:24:21,908 - __main__ - INFO - 
+========================================================================
+Cooperative GA-PSO | Dataset: cleveland    | Classifier: SVM
+========================================================================
+2026-09-30 21:24:21,908 - __main__ - INFO - Round  1/10
+2026-09-30 21:24:44,038 - __main__ - INFO -   GA  best fitness=0.7877 | selected 8/13 features
+2026-09-30 21:25:25,389 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-09-30 21:25:25,390 - __main__ - INFO - Round  2/10
+2026-09-30 21:25:39,024 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:26:20,714 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-09-30 21:26:20,714 - __main__ - INFO - Round  3/10
+2026-09-30 21:26:33,700 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:27:15,034 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-09-30 21:27:15,034 - __main__ - INFO - Round  4/10
+2026-09-30 21:27:28,871 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:28:36,022 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-09-30 21:28:36,024 - __main__ - INFO - Round  5/10
+2026-09-30 21:28:56,905 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:30:02,194 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-09-30 21:30:02,195 - __main__ - INFO - Round  6/10
+2026-09-30 21:30:24,743 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:31:30,961 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-09-30 21:31:30,961 - __main__ - INFO - Round  7/10
+2026-09-30 21:31:47,527 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:32:54,291 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-09-30 21:32:54,291 - __main__ - INFO - Round  8/10
+2026-09-30 21:33:16,858 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:34:23,416 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-09-30 21:34:23,416 - __main__ - INFO - Round  9/10
+2026-09-30 21:34:43,816 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:35:50,576 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-09-30 21:35:50,576 - __main__ - INFO - Round 10/10
+2026-09-30 21:36:11,118 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-09-30 21:37:16,366 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-09-30 21:37:16,372 - __main__ - INFO - Results saved to results\cooperative_ga_pso\cleveland_SVM_cooperative_ga_pso.json
+2026-09-30 21:37:19,119 - src.cooperative_ga_pso - INFO -   Loaded 'cleveland': 303 samples, 13 features, 45.9% positive.
+2026-09-30 21:37:20,912 - __main__ - WARNING - Evaluation step failed for cleveland / SVM: This 'Pipeline' has no attribute 'predict_proba'  (run  python -m src.evaluate_hybrid --result all  later)
+2026-09-30 21:37:20,913 - __main__ - INFO - 
+Starting cooperative run: dataset=cleveland  classifier=RandomForest
+2026-09-30 21:37:20,913 - __main__ - INFO - 
+========================================================================
+Cooperative GA-PSO | Dataset: cleveland    | Classifier: RandomForest
+========================================================================
+2026-09-30 21:37:20,914 - __main__ - INFO - Round  1/10
+2026-09-30 21:42:05,224 - __main__ - INFO -   GA  best fitness=0.7735 | selected 6/13 features
+2026-09-30 22:06:39,010 - __main__ - INFO -   PSO best fitness=0.7766 | hyperparams: {'n_estimators': 190, 'max_depth': 7}
+2026-09-30 22:06:39,036 - __main__ - INFO - Round  2/10
+2026-09-30 22:15:06,511 - __main__ - INFO -   GA  best fitness=0.8005 | selected 6/13 features
+2026-09-30 22:43:16,721 - __main__ - INFO -   PSO best fitness=0.8047 | hyperparams: {'n_estimators': 266, 'max_depth': 7}
+2026-09-30 22:43:16,742 - __main__ - INFO - Round  3/10
+2026-09-30 22:51:51,621 - __main__ - INFO -   GA  best fitness=0.8047 | selected 6/13 features
+2026-09-30 23:20:49,796 - __main__ - INFO -   PSO best fitness=0.8047 | hyperparams: {'n_estimators': 266, 'max_depth': 7}
+2026-09-30 23:20:49,798 - __main__ - INFO - Round  4/10
+2026-09-30 23:31:18,335 - __main__ - INFO -   GA  best fitness=0.8047 | selected 6/13 features
+2026-10-01 00:00:59,986 - __main__ - INFO -   PSO best fitness=0.8047 | hyperparams: {'n_estimators': 266, 'max_depth': 7}
+2026-10-01 00:00:59,987 - __main__ - INFO - Round  5/10
+2026-10-01 00:08:57,635 - __main__ - INFO -   GA  best fitness=0.8047 | selected 6/13 features
+2026-10-01 00:38:24,083 - __main__ - INFO -   PSO best fitness=0.8047 | hyperparams: {'n_estimators': 266, 'max_depth': 7}
+2026-10-01 00:38:24,105 - __main__ - INFO - Round  6/10
+2026-10-01 00:48:00,719 - __main__ - INFO -   GA  best fitness=0.8047 | selected 6/13 features
+2026-10-01 00:58:12,195 - __main__ - INFO -   Loaded 'cleveland': 303 samples, 13 features, 45.9% positive.
+2026-10-01 00:58:12,195 - __main__ - INFO - 
+Starting cooperative run: dataset=cleveland  classifier=SVM
+2026-10-01 00:58:12,195 - __main__ - INFO - 
+========================================================================
+Cooperative GA-PSO | Dataset: cleveland    | Classifier: SVM
+========================================================================
+2026-10-01 00:58:12,198 - __main__ - INFO - Round  1/10
+2026-10-01 01:00:05,046 - __main__ - INFO -   GA  best fitness=0.7877 | selected 8/13 features
+2026-10-01 01:02:59,211 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-10-01 01:02:59,211 - __main__ - INFO - Round  2/10
+2026-10-01 01:03:51,272 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-10-01 01:06:38,746 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-10-01 01:06:38,746 - __main__ - INFO - Round  3/10
+2026-10-01 01:07:32,405 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-10-01 01:10:18,604 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-10-01 01:10:18,605 - __main__ - INFO - Round  4/10
+2026-10-01 01:11:08,798 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-10-01 01:14:16,465 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-10-01 01:14:16,467 - __main__ - INFO - Round  5/10
+2026-10-01 01:15:22,346 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-10-01 01:18:21,147 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-10-01 01:18:21,149 - __main__ - INFO - Round  6/10
+2026-10-01 01:19:20,960 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-10-01 01:22:09,659 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-10-01 01:22:09,659 - __main__ - INFO - Round  7/10
+2026-10-01 01:23:03,053 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-10-01 01:24:44,167 - __main__ - INFO -   PSO best fitness=0.8047 | hyperparams: {'n_estimators': 266, 'max_depth': 7}
+2026-10-01 01:24:44,173 - __main__ - INFO - Round  7/10
+2026-10-01 01:25:58,265 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-10-01 01:25:58,267 - __main__ - INFO - Round  8/10
+2026-10-01 01:26:53,100 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-10-01 01:29:43,592 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-10-01 01:29:43,592 - __main__ - INFO - Round  9/10
+2026-10-01 01:30:36,579 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-10-01 01:33:27,195 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-10-01 01:33:27,197 - __main__ - INFO - Round 10/10
+2026-10-01 01:34:22,896 - __main__ - INFO -   GA  best fitness=0.8068 | selected 8/13 features
+2026-10-01 01:37:18,482 - __main__ - INFO -   PSO best fitness=0.8068 | hyperparams: {'C': 0.819163185819456, 'gamma': 0.26865166991086686}
+2026-10-01 01:37:18,517 - __main__ - INFO - Results saved to results\cooperative_ga_pso\cleveland_SVM_cooperative_ga_pso.json
+2026-10-01 01:37:22,927 - src.cooperative_ga_pso - INFO -   Loaded 'cleveland': 303 samples, 13 features, 45.9% positive.
+2026-10-01 01:37:30,535 - __main__ - INFO - 
+Starting cooperative run: dataset=cleveland  classifier=RandomForest
+2026-10-01 01:37:30,537 - __main__ - INFO - 
+========================================================================
+Cooperative GA-PSO | Dataset: cleveland    | Classifier: RandomForest
+========================================================================
+2026-10-01 01:37:30,538 - __main__ - INFO - Round  1/10
+2026-10-01 01:38:15,438 - __main__ - INFO -   GA  best fitness=0.8047 | selected 6/13 features
+2026-10-01 01:46:11,637 - __main__ - INFO -   GA  best fitness=0.7735 | selected 6/13 features
+2026-10-01 02:21:12,708 - __main__ - INFO -   PSO best fitness=0.7766 | hyperparams: {'n_estimators': 190, 'max_depth': 7}
+2026-10-01 02:21:12,719 - __main__ - INFO - Round  2/10
+2026-10-01 02:24:33,167 - src.cooperative_ga_pso - INFO -   Loaded 'cleveland': 303 samples, 13 features, 45.9% positive.
+2026-10-01 02:25:46,177 - src.cooperative_ga_pso - INFO -   Loaded 'cleveland': 303 samples, 13 features, 45.9% positive.
+2026-10-01 02:28:16,055 - __main__ - INFO -   GA  best fitness=0.8005 | selected 6/13 features
+2026-10-01 03:00:23,600 - __main__ - INFO -   PSO best fitness=0.8047 | hyperparams: {'n_estimators': 266, 'max_depth': 7}
+2026-10-01 03:00:23,603 - __main__ - INFO - Round  3/10
+2026-10-01 03:09:53,578 - __main__ - INFO -   GA  best fitness=0.8047 | selected 6/13 features

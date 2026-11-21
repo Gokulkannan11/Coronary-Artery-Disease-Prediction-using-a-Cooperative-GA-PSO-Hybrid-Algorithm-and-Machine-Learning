@@ -1,0 +1,10 @@
+D:\MTECH\Evolve tag\heart-disease-hybrid-eo\src\evaluate_hybrid.py:56: UserWarning: XGBoost is not installed.  The 'XGBoost' classifier will be skipped. Install it with:  pip install xgboost
+  from src.cooperative_ga_pso import (
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\MTECH\Evolve tag\heart-disease-hybrid-eo\src\evaluate_hybrid.py", line 56, in <module>
+    from src.cooperative_ga_pso import (
+  File "D:\MTECH\Evolve tag\heart-disease-hybrid-eo\src\cooperative_ga_pso.py", line 85, in <module>
+    from deap import algorithms, base, creator, tools
+ModuleNotFoundError: No module named 'deap'

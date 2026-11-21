@@ -1,0 +1,28 @@
+{
+  "accuracy": 0.8646864686468647,
+  "precision_macro": 0.8662072032014229,
+  "recall_macro": 0.8612914546411652,
+  "f1_macro": 0.8629609610272136,
+  "precision_weighted": 0.8653230552045866,
+  "recall_weighted": 0.8646864686468647,
+  "f1_weighted": 0.8642297166298982,
+  "roc_auc": 0.8849798210212318,
+  "avg_precision": 0.8680279107997728,
+  "mcc": 0.7274820496609241,
+  "best_ga_pso_fitness": 0.8068415654711538,
+  "n_best_features": 8,
+  "best_features": [
+    "age",
+    "sex",
+    "cp",
+    "fbs",
+    "thalach",
+    "exang",
+    "ca",
+    "thal"
+  ],
+  "best_hyperparams": {
+    "C": 0.819163185819456,
+    "gamma": 0.26865166991086686
+  }
+}
